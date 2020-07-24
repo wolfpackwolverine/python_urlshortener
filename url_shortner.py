@@ -1,3 +1,7 @@
+
+#we can use dictionary (key: original url, value: numeric id).
+#when new url comes, we can simply give new id (latest id + 1) which always be unique.
+#rather than returning id as shorten url, we apply base 62 encoding so we can compress base10 to base62
 class URL_Shortener:
     # suppose, we already have 10 billion urls
     id = 10000000000
@@ -29,8 +33,6 @@ class URL_Shortener:
             id = id // base
         # since ret has reversed order of base62 id, reverse ret before return it
         return "".join(ret[::-1])
-
-In [153]:
 
 shortener = URL_Shortener()
 print(shortener.shorten_url("goooooooooooooogle.com"))
